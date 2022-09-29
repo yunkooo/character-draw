@@ -9,19 +9,121 @@ body {
     background-color: #def8a2;
 }
 
-
 .container {
     width: 1000px;
     height: 1000px;
-    margin: 100px auto;
+    margin: 200px auto;
+}
+
+
+.leaf-body {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 20px;
+    height: 80px;
+    background-color: #3ba44b;
+    transform: translateX(-50%);
+    border-radius: 30% 30% 30% 30%;
+}
+.leaf {
+    position: absolute;
+    top: -90px;
+    width: 100px;
+    height: 100px;
+    background-color: #3ba44b;
+}
+
+@keyframes leaf-rotate-right {
+    from {
+        transform: rotate(20deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+@keyframes leaf-rotate-left {
+    from {
+        transform: rotate(-20deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+.leaf.right {
+    left: 5px;
+    border-radius: 100% 20% 100% 20% ;
+    transform-origin: 0 100%;
+    animation: leaf-rotate-right 1s infinite alternate;
+}
+
+.leaf.right::before {
+    top: 20%;
+    left: 50%;
+    rotate: 50deg;
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background-color: #064d05;
+}
+
+.leaf.left {
+    right: 0px;
+    border-radius: 20% 100% 20% 100% ;
+    transform-origin: 100% 100%;
+    animation: leaf-rotate-left 1s infinite alternate;
+
+}
+.leaf-line {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: #064d05;
+}
+
+.leaf-line.one {
+    top: 30%;
+    left: 50%;
+}
+.leaf-line.two {
+    top: 55%;
+    left: 54%;
+    rotate: 60deg;
+}
+.leaf-line.three {
+    top: 30%;
+    left: 50%;
+}
+.leaf-line.four {
+    top: 35%;
+    right: 30%;
+    rotate: 100deg;
+}
+.leaf-line.five {
+    top: 54%;
+    left: 45%;
+    rotate: 100deg;
+}
+
+
+.leaf.left::before {
+    top: 20%;
+    left: 50%;
+    rotate: -50deg;
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background-color: #064d05;
 }
 
 @keyframes head-move{
     0% {
-        transform:matrix(0.7,0,0,0.7,0,0);
+        transform: scale(0.7);
     }
     100% {
-        transform:matrix(1,0,0,1,45,45);
+        transform: scale(1.0);
 
     }
 }
@@ -267,13 +369,13 @@ body {
 }
 
 .heart.left {
-    left: 15px;
-    border-radius: 30% 70% 20% 90%;
-    transform: rotateX(20deg);
+    left: 19px;
+    border-radius: 50% 50% 0% 0%;
+    transform: rotate(-45deg);
 }
 
 .heart.right {
-    right: 15px;
-    border-radius: 70% 30% 90% 20%;
-    transform: rotateX(-20deg);
+    right: 19px;
+    border-radius: 50% 50% 0% 0%;
+    transform: rotate(45deg);
 }
